@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Labs | ChargedUP</title>
+    <meta name="description"
+        content="Interactive virtual labs for exploring battery chemistry and motor physics concepts.">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        @keyframes flow {
+            from {
+                transform: translateX(-100px);
+            }
+
+            to {
+                transform: translateX(calc(100% + 100px));
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        /* Fixed-width numbers to prevent flickering from layout shifts */
+        .result-item strong,
+        #rc-result-force,
+        #rc-result-accel,
+        #rc-result-velocity,
+        #rc-result-power {
+            font-variant-numeric: tabular-nums;
+            min-width: 120px;
+            display: inline-block;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="header">
+        <div class="header__inner">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo.svg" alt="" width="40" height="40">
+                <span>ChargedUP</span>
+            </a>
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle menu"><span class="nav-toggle__bar"></span><span
+                        class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span></button>
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="chemistry.html" class="nav__link">Chemistry</a></li>
+                    <li><a href="physics.html" class="nav__link">Physics</a></li>
+                    <li><a href="integrated.html" class="nav__link">Integrated</a></li>
+                    <li><a href="simulations.html" class="nav__link nav__link--active">Simulations</a></li>
+                    <li><a href="glossary.html" class="nav__link">Glossary</a></li>
+                    <li><a href="sources.html" class="nav__link">Sources</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="page-wrapper">
+        <div class="container">
+            <section class="section">
+                <h1>🧪 Virtual Labs & Simulations</h1>
+                <p class="text-lg">Hands-on exploration of battery and motor concepts</p>
+            </section>
+
+            <!-- Fun Facts -->
+            <section class="section">
+                <h2>💡 Did You Know?</h2>
+                <div class="grid grid--3">
+                    <div class="card" style="border-left: 4px solid var(--color-accent-cyan);">
+                        <h4>🏎️ RC Cars Hit 200+ mph!</h4>
+                        <p>The fastest RC car ever recorded hit <strong>377.73 km/h</strong> in 2025. That's faster than
+                            most supercars!</p>
+                    </div>
+                    <div class="card" style="border-left: 4px solid var(--color-accent-teal);">
+                        <h4>🛸 First RC: 1898</h4>
+                        <p>Nikola Tesla demonstrated the first radio-controlled vehicle (a boat) in 1898. At the time,
+                            people thought
+                            it was magic!</p>
+                    </div>
+                    <div class="card" style="border-left: 4px solid var(--color-accent-cyan);">
+                        <h4>🔋 Brushless Motors Rule</h4>
+                        <p>Modern RC cars use brushless motors (motors that use an electronic controller to switch
+                            current to the stator windings instead of physical brushes) that are up to <strong>90%
+                                efficient</strong>, compared to
+                            only 75% for brushed motors! </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lab 1: Battery Discharge -->
+            <section class="section" id="labs">
+                <h2>Lab 1: Battery Discharge & Internal Resistance</h2>
+
+                <div class="card">
+                    <div class="grid grid--2">
+                        <div>
+                            <h3>Objectives</h3>
+                            <ul>
+                                <li>Observe how internal resistance causes voltage drop under load</li>
+                                <li>See how higher current draw creates greater voltage sag</li>
+                                <li>Understand the relationship V<sub>loaded</sub> = V<sub>open</sub> - (I ×
+                                    R<sub>internal</sub>)</li>
+                            </ul>
+
+                            <h4 class="mt-lg">Instructions</h4>
+                            <ol>
+                                <li>Adjust the current draw slider and observe voltage changes</li>
+                                <li>Increase internal resistance and see the voltage sag increase</li>
+                                <li>Notice how higher current or resistance causes more power loss</li>
+                            </ol>
+                        </div>
+
+                        <div>
+                            <h4>Battery Pack Visualization</h4>
+                            <div id="battery-pack-container" class="battery-pack"
+                                style="background: var(--color-bg-tertiary); border-radius: 12px; padding: 2rem; position: relative; min-height: 120px;">
+                                <div class="battery-cell" id="cell-1">
+                                    <div class="battery-cell__terminal"></div>
+                                    <div class="battery-cell__level" id="cell-1-level" style="height: 100%;"></div>
+                                    <span class="battery-cell__label">AA</span>
+                                </div>
+                                <div class="battery-cell" id="cell-2">
+                                    <div class="battery-cell__terminal"></div>
+                                    <div class="battery-cell__level" id="cell-2-level" style="height: 100%;"></div>
+                                    <span class="battery-cell__label">AA</span>
+                                </div>
+                                <div class="battery-cell" id="cell-3">
+                                    <div class="battery-cell__terminal"></div>
+                                    <div class="battery-cell__level" id="cell-3-level" style="height: 100%;"></div>
+                                    <span class="battery-cell__label">AA</span>
+                                </div>
+                                <div class="battery-cell" id="cell-4">
+                                    <div class="battery-cell__terminal"></div>
+                                    <div class="battery-cell__level" id="cell-4-level" style="height: 100%;"></div>
+                                    <span class="battery-cell__label">AA</span>
+                                </div>
+                                <!-- Electron flow animation -->
+                                <div id="electron-flow"
+                                    style="position: absolute; bottom: 10px; left: 0; right: 0; height: 20px; overflow: hidden;">
+                                    <div id="electrons"
+                                        style="display: flex; gap: 15px; animation: flow 2s linear infinite;"></div>
+                                </div>
+                            </div>
+                            <p class="text-center text-muted text-sm mt-md">
+                                <span id="pack-status">4×AA Battery Pack (6V nominal) — Fully Charged</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-lg">
+                        <h4>Experiment: Voltage Sag Under Load</h4>
+                        <div class="input-grid">
+                            <div class="form-group">
+                                <label class="form-label">Current Draw (A)</label>
+                                <input type="range" class="range-slider" min="0.1" max="3" step="0.1" value="0.5"
+                                    id="lab1-current">
+                                <span id="lab1-current-display">0.5 A</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Internal Resistance (Ω)</label>
+                                <input type="range" class="range-slider" min="0.2" max="2" step="0.1" value="1.2"
+                                    id="lab1-resistance">
+                                <span id="lab1-resistance-display">1.2 Ω</span>
+                            </div>
+                        </div>
+
+                        <div class="results-panel mt-md">
+                            <div class="grid grid--3">
+                                <div class="result-item">
+                                    <span>Open-Circuit Voltage:</span>
+                                    <strong>6.0 V</strong>
+                                </div>
+                                <div class="result-item">
+                                    <span>Loaded Voltage:</span>
+                                    <strong id="lab1-loaded-v">5.4 V</strong>
+                                </div>
+                                <div class="result-item">
+                                    <span>Power Lost to Heat:</span>
+                                    <strong id="lab1-power-loss">0.3 W</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-lg">
+                        <h4>Learning Outcomes</h4>
+                        <ul>
+                            <li>Higher current = more voltage drop (V = IR)</li>
+                            <li>Internal resistance causes energy loss as heat</li>
+                            <li>Fresh batteries have lower internal resistance</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lab 2: Motor Current & Magnetic Field -->
+            <section class="section">
+                <h2>Lab 2: Motor Current & Magnetic Field</h2>
+
+                <div class="card">
+                    <div class="grid grid--2">
+                        <div>
+                            <h3>Objectives</h3>
+                            <ul>
+                                <li>See how current affects magnetic field strength</li>
+                                <li>Observe the effect of coil turns</li>
+                                <li>Understand the relationship between magnetic field and motor speed</li>
+                            </ul>
+
+                            <h4 class="mt-lg">Controls</h4>
+                            <div class="form-group">
+                                <label class="form-label">Current (A)</label>
+                                <input type="range" class="range-slider" min="0.1" max="2" step="0.1" value="1"
+                                    id="lab2-current">
+                                <span id="lab2-current-display">1.0 A</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Coil Turns</label>
+                                <input type="range" class="range-slider" min="10" max="200" step="10" value="50"
+                                    id="lab2-turns">
+                                <span id="lab2-turns-display">50 turns</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Magnetic Field Visualization</h4>
+                            <canvas id="lab2-canvas" width="300" height="200"
+                                style="width:100%; background:#071733; border-radius:8px;"></canvas>
+
+                            <div class="results-panel mt-md">
+                                <div class="result-item">
+                                    <span>Magnetic Field:</span>
+                                    <strong id="lab2-bfield">3.14 mT</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-lg">
+                        <h4>Learning Outcomes</h4>
+                        <ul>
+                            <li><strong>Magnetic field is proportional to current (B ∝ I):</strong> Increasing the
+                                current through the coil creates a stronger magnetic field.</li>
+                            <li><strong>More turns = stronger field (B ∝ N):</strong> Adding more wire turns multiplies
+                                the magnetic effect.</li>
+                            <li><strong>Magnetic field determines motor torque:</strong> A stronger magnetic field
+                                creates more force on the <a href="glossary.html#armature">armature</a>, producing more
+                                <a href="glossary.html#torque">torque</a>.
+                            </li>
+                        </ul>
+
+                        <details class="show-work mt-md">
+                            <summary class="show-work__header">
+                                <span class="show-work__toggle">🔌 Back-EMF and Motor Speed Relationship ▼</span>
+                            </summary>
+                            <div class="show-work__content">
+                                <p><strong>Back-EMF (Electromotive Force):</strong> As a motor spins, it acts like a
+                                    generator and produces a voltage that opposes the supply voltage. This is called
+                                    Back-EMF.</p>
+
+                                <p><strong>How it Works:</strong></p>
+                                <ul>
+                                    <li><strong>At startup (low speed):</strong> Back-EMF is nearly zero, so full
+                                        current flows and the motor produces maximum torque to accelerate.</li>
+                                    <li><strong>As motor speeds up:</strong> Back-EMF increases, reducing the effective
+                                        voltage and current. This means less torque at higher speeds.</li>
+                                    <li><strong>At top speed:</strong> Back-EMF nearly equals the supply voltage.
+                                        Current drops to just enough to overcome friction, and the motor stops
+                                        accelerating.</li>
+                                </ul>
+
+                                <p><strong>The Relationship:</strong> Motor speed is determined by the balance between
+                                    available torque (from the magnetic field) and the forces opposing motion (friction,
+                                    air resistance). As the magnetic field increases, the motor can produce more torque
+                                    and potentially reach higher speeds, but Back-EMF limits how efficiently this extra
+                                    energy translates to speed.</p>
+
+                                <p class="text-muted text-sm mt-md"><em>Formula: Back-EMF ∝ Speed × Magnetic Field
+                                        Strength</em></p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RC Car Simulator -->
+            <section class="section" id="rc-car-simulator">
+                <h2>🚗 Virtual RC Car Simulator</h2>
+                <p class="mb-lg">See your battery power in action! Control the throttle and watch the car accelerate
+                    based on real physics calculations.</p>
+
+                <div class="card">
+                    <div class="grid grid--2">
+                        <!-- Side View -->
+                        <div>
+                            <h3>Side View Animation</h3>
+                            <canvas id="rc-side-canvas"
+                                style="width:100%; height:180px; background:#0a1628; border-radius:8px;"></canvas>
+                            <p class="text-muted text-sm mt-sm">Shows forces, speed, and battery level</p>
+                        </div>
+
+                        <!-- Top-Down Track -->
+                        <div>
+                            <h3>Race Track (Top View)</h3>
+                            <canvas id="rc-track-canvas"
+                                style="width:100%; height:300px; background:#0a1628; border-radius:8px;"></canvas>
+                            <p class="text-muted text-sm mt-sm">Oval track with lap timing</p>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="mt-lg">
+                        <h4>Controls</h4>
+                        <div class="input-grid">
+                            <div class="form-group">
+                                <label class="form-label">Throttle: <span id="rc-throttle-display">0%</span></label>
+                                <input type="range" id="rc-throttle" class="range-slider" min="0" max="100" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Car Mass: <span id="rc-mass-display">500 g</span></label>
+                                <input type="range" id="rc-mass" class="range-slider" min="200" max="2000" value="500">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Friction (μ): <span
+                                        id="rc-friction-display">0.30</span></label>
+                                <input type="range" id="rc-friction" class="range-slider" min="0.1" max="0.8"
+                                    step="0.05" value="0.3">
+                            </div>
+                        </div>
+
+                        <div class="flex gap-md mt-md">
+                            <button id="rc-start" class="btn btn--primary">▶ Start</button>
+                            <button id="rc-reset" class="btn btn--ghost">🔄 Reset</button>
+                        </div>
+                    </div>
+
+                    <!-- Kinematics Results -->
+                    <div class="results-panel mt-lg">
+                        <h4 class="mb-md">Kinematics Calculations (F = ma)</h4>
+                        <div class="grid grid--2">
+                            <div class="result-item">
+                                <span>Motor Force (F):</span>
+                                <strong id="rc-result-force">0.000 N</strong>
+                            </div>
+                            <div class="result-item">
+                                <span>Acceleration (a):</span>
+                                <strong id="rc-result-accel">0.000 m/s²</strong>
+                            </div>
+                            <div class="result-item">
+                                <span>Velocity (v):</span>
+                                <strong id="rc-result-velocity">0.00 m/s</strong>
+                            </div>
+                            <div class="result-item">
+                                <span>Power (P = VI):</span>
+                                <strong id="rc-result-power">0.00 W</strong>
+                            </div>
+                        </div>
+                        <p class="text-muted text-sm mt-sm"><em>Note: All displayed values are rounded to three decimal
+                                places for visual stability during real-time calculations.<br>Please <b>pause</b> the
+                                simulation to see accurate values if they are flickering.</em></p>
+                    </div>
+
+                    <!-- Formulas Used -->
+                    <details class="show-work mt-lg">
+                        <summary class="show-work__header">
+                            <span class="show-work__toggle">📐 Physics Formulas Used ▼</span>
+                        </summary>
+                        <div class="show-work__content">
+                            <div class="grid grid--2">
+                                <div>
+                                    <h4>Newton's 2nd Law</h4>
+                                    <pre><code>F = m × a
+a = F<sub>net</sub> / m</code></pre>
+                                    <p class="text-sm text-muted">The net force on the car determines its acceleration.
+                                        More force = faster acceleration.</p>
+                                </div>
+                                <div>
+                                    <h4>Motor Force (Internal Torque)</h4>
+                                    <pre><code>F<sub>motor</sub> = τ / r
+τ = torque, r = wheel radius</code></pre>
+                                    <p class="text-sm text-muted">The motor's internal torque is converted to a pushing
+                                        force at the wheels. This force decreases as speed increases due to Back-EMF.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h4>Friction Force</h4>
+                                    <pre><code>f = μ × N = μ × m × g
+(opposes motion)</code></pre>
+                                    <p class="text-sm text-muted">Friction always opposes motion and increases with the
+                                        car's mass.</p>
+                                </div>
+                                <div>
+                                    <h4>Kinematics</h4>
+                                    <pre><code>v = v₀ + at
+x = x₀ + vt</code></pre>
+                                    <p class="text-sm text-muted">These equations describe how position and velocity
+                                        change over time.</p>
+                                </div>
+                            </div>
+
+                            <div class="card mt-lg"
+                                style="background: var(--color-bg-tertiary); border-left: 3px solid var(--color-accent-teal);">
+                                <h4>Understanding Force Balance (Why the Car Reaches Top Speed)</h4>
+                                <p><strong>At Startup (Low Speed):</strong> The motor pushes with maximum force (e.g.,
+                                    3.5 N). Since friction is small compared to motor force, the car accelerates
+                                    quickly.</p>
+                                <p class="mt-sm"><strong>As Speed Increases:</strong> Back-EMF reduces the motor's
+                                    effective current, decreasing motor force. Meanwhile, the friction force stays
+                                    relatively constant.</p>
+                                <p class="mt-sm"><strong>At Top Speed:</strong> Motor force drops to match friction
+                                    force exactly. For example:</p>
+                                <pre class="mt-sm"><code>Motor Force = 0.49 N
+Friction Force = 0.49 N
+Net Force = 0.49 - 0.49 = 0.00 N
+Acceleration = 0.00 m/s²</code></pre>
+                                <p class="mt-sm text-sm text-muted">At this equilibrium, the car maintains constant
+                                    speed without accelerating. The power being used (P = F × v) stays within the
+                                    battery's limits.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Experiment Ideas -->
+            <section class="section content-container">
+                <h2>🔬 Extra Experiments</h2>
+
+                <div class="grid grid--2">
+                    <div class="card">
+                        <h4>Experiment A: Efficiency Challenge</h4>
+                        <p>Using the battery calculator, find the combination of battery configuration and motor
+                            resistance that gives the best efficiency (most power to motor, least power lost to heat).
+                        </p>
+                        <a href="chemistry.html" class="btn btn--sm btn--ghost mt-md">Start Experiment</a>
+                    </div>
+
+                    <div class="card">
+                        <h4>Experiment B: Runtime Prediction</h4>
+                        <p>Calculate the expected runtime for different current draws. Then compare theoretical vs.
+                            typical real-world values.</p>
+                        <a href="chemistry.html" class="btn btn--sm btn--ghost mt-md">Start Experiment</a>
+                    </div>
+
+                    <div class="card">
+                        <h4>Experiment C: Series vs. Parallel</h4>
+                        <p>Compare a 4×AA series pack vs. a 2S2P (2 series, 2 parallel) configuration. How do voltage,
+                            capacity, and internal resistance differ?</p>
+                        <a href="chemistry.html" class="btn btn--sm btn--ghost mt-md">Start Experiment</a>
+                    </div>
+
+                    <div class="card">
+                        <h4>Experiment D: Material Effects</h4>
+                        <p>In the motor simulator, compare magnetic field strength with air core vs. ferrite core. How
+                            much
+                            does it increase?</p>
+                        <a href="physics.html" class="btn btn--sm btn--ghost mt-md">Start Experiment</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section text-center">
+                <a href="glossary.html" class="btn btn--primary">View Glossary</a>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>ChargedUP: Behind The Scenes of an RC Car — 2026 <br> By Aayan Sikri</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/gsap-animations.js"></script>
+    <script>
+        // Lab 1: Voltage sag simulation with animated battery
+        document.addEventListener('DOMContentLoaded', () => {
+            const lab1Current = document.getElementById('lab1-current');
+            const lab1Resistance = document.getElementById('lab1-resistance');
+            let batteryLevel = 100;
+
+            // Create electron particles
+            const electronsContainer = document.getElementById('electrons');
+            if (electronsContainer) {
+                for (let i = 0; i < 12; i++) {
+                    const electron = document.createElement('span');
+                    electron.textContent = 'e⁻';
+                    electron.style.cssText = 'color: #00D1FF; font-size: 10px; font-weight: bold;';
+                    electronsContainer.appendChild(electron);
+                }
+            }
+
+            function updateBatteryVisualization(current) {
+                // Animate electron flow speed
+                const electrons = document.getElementById('electrons');
+                if (electrons) {
+                    const speed = Math.max(0.3, 2 - current * 0.5);
+                    electrons.style.animation = `flow ${speed}s linear infinite`;
+                }
+
+                // Update cell colors based on voltage sag
+                const cells = ['cell-1-level', 'cell-2-level', 'cell-3-level', 'cell-4-level'];
+                const R = parseFloat(lab1Resistance?.value || 1.2);
+                const voltageDrop = current * R;
+                const efficiency = Math.max(0, 1 - voltageDrop / 6);
+
+                cells.forEach(cellId => {
+                    const cell = document.getElementById(cellId);
+                    if (cell) {
+                        // Height represents energy remaining
+                        cell.style.height = (batteryLevel * efficiency) + '%';
+
+                        // Color changes from green to yellow to red
+                        const hue = Math.max(0, Math.min(120, efficiency * 120));
+                        cell.style.background = `linear-gradient(to top, hsl(${hue}, 70%, 50%), hsl(${hue}, 80%, 60%))`;
+
+                        // Add pulsing effect when under high load
+                        if (current > 1.5) {
+                            cell.style.animation = 'pulse 0.5s ease infinite';
+                        } else {
+                            cell.style.animation = 'none';
+                        }
+                    }
+                });
+
+                // Update status text
+                const status = document.getElementById('pack-status');
+                if (status) {
+                    let statusText = '4×AA Battery Pack (6V nominal) — ';
+                    if (efficiency > 0.8) statusText += '✓ Good';
+                    else if (efficiency > 0.5) statusText += '⚠ Moderate Load';
+                    else if (efficiency > 0.2) statusText += '⚠ High Load';
+                    else statusText += '❌ Overloaded';
+                    status.textContent = statusText;
+                }
+            }
+
+            function updateLab1() {
+                const I = parseFloat(lab1Current?.value || 0.5);
+                const R = parseFloat(lab1Resistance?.value || 1.2);
+                const Vopen = 6.0;
+                const Vloaded = Vopen - (I * R);
+                const Ploss = I * I * R;
+
+                document.getElementById('lab1-current-display').textContent = I.toFixed(1) + ' A';
+                document.getElementById('lab1-resistance-display').textContent = R.toFixed(1) + ' Ω';
+                document.getElementById('lab1-loaded-v').textContent = Math.max(0, Vloaded).toFixed(2) + ' V';
+                document.getElementById('lab1-power-loss').textContent = Ploss.toFixed(2) + ' W';
+
+                // Update battery visualization
+                updateBatteryVisualization(I);
+            }
+
+            lab1Current?.addEventListener('input', updateLab1);
+            lab1Resistance?.addEventListener('input', updateLab1);
+            updateLab1();
+
+            // Lab 2: magnetic field simulation
+            const lab2Current = document.getElementById('lab2-current');
+            const lab2Turns = document.getElementById('lab2-turns');
+            const lab2Canvas = document.getElementById('lab2-canvas');
+
+            function updateLab2() {
+                const I = parseFloat(lab2Current?.value || 1);
+                const N = parseInt(lab2Turns?.value || 50);
+                const L = 0.02; // 2cm
+                const mu0 = 4 * Math.PI * 1e-7;
+                const B = mu0 * N * I / L;
+                const BmT = B * 1000;
+
+                document.getElementById('lab2-current-display').textContent = I.toFixed(1) + ' A';
+                document.getElementById('lab2-turns-display').textContent = N + ' turns';
+                document.getElementById('lab2-bfield').textContent = BmT.toFixed(2) + ' mT';
+
+                // Draw simple visualization
+                if (lab2Canvas) {
+                    const ctx = lab2Canvas.getContext('2d');
+                    const w = lab2Canvas.width;
+                    const h = lab2Canvas.height;
+
+                    ctx.fillStyle = '#071733';
+                    ctx.fillRect(0, 0, w, h);
+
+                    // Draw coil
+                    ctx.strokeStyle = '#3EF1C6';
+                    ctx.lineWidth = 3;
+                    ctx.strokeRect(w * 0.3, h * 0.3, w * 0.4, h * 0.4);
+
+                    // Draw field lines (intensity based on B)
+                    const intensity = Math.min(BmT / 10, 1);
+                    ctx.strokeStyle = `rgba(0, 209, 255, ${0.3 + intensity * 0.7})`;
+                    ctx.lineWidth = 2 + intensity * 2;
+
+                    for (let i = 0; i < 3; i++) {
+                        const y = h * 0.4 + i * h * 0.1; ctx.beginPath(); ctx.moveTo(w * 0.2, y);
+                        ctx.lineTo(w * 0.8, y); ctx.stroke();
+                    } ctx.fillStyle = '#F8FAFC'; ctx.font = '12px Inter';
+                    ctx.fillText(`B=${BmT.toFixed(2)} mT`, w * 0.35, h * 0.9);
+                }
+            } lab2Current?.addEventListener('input',
+                updateLab2); lab2Turns?.addEventListener('input', updateLab2); updateLab2();
+        }); </script>
+    <script src="scripts/rc-car.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About ChargedUP, teacher resources, and rubric mapping.">
+    <title>About & Teacher Summary | ChargedUP</title>
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="header no-print">
+        <div class="header__inner">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo.svg" alt="" width="40" height="40">
+                <span>ChargedUP</span>
+            </a>
+
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="nav-toggle__bar"></span>
+                    <span class="nav-toggle__bar"></span>
+                    <span class="nav-toggle__bar"></span>
+                </button>
+
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="chemistry.html" class="nav__link">Chemistry</a></li>
+                    <li><a href="physics.html" class="nav__link">Physics</a></li>
+                    <li><a href="integrated.html" class="nav__link">Integrated</a></li>
+                    <li><a href="simulations.html" class="nav__link">Simulations</a></li>
+                    <li><a href="glossary.html" class="nav__link">Glossary</a></li>
+                    <li><a href="sources.html" class="nav__link">Sources</a></li>
+                    <li><a href="about.html" class="nav__link nav__link--active">About</a></li>
+                </ul>
+
+                <div class="mode-toggle">
+                    <button class="mode-toggle__btn" data-mode="chemistry">🔋 Chemistry</button>
+                    <button class="mode-toggle__btn" data-mode="physics">🚗 Physics</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="page-wrapper">
+        <div class="container content-container">
+            <div class="section">
+                <h1>About ChargedUP</h1>
+                <p class="text-muted">
+                    A combined Grade 11 Chemistry 30S and Physics 30S final project<br>
+                    By Aayan Sikri
+                </p>
+
+                <div class="flex gap-md mt-lg no-print">
+                    <button onclick="downloadPDF()" class="btn btn--primary">
+                        📥 Download Project Summary
+                    </button>
+                    <button onclick="downloadResourcesPDF()" class="btn btn--secondary">
+                        📚 Additional Resources
+                    </button>
+                </div>
+            </div>
+
+            <!-- Project Overview -->
+            <section class="section" id="overview">
+                <h2>Project Overview</h2>
+
+                <div class="card">
+                    <p>
+                        <strong>ChargedUP: Behind The Scenes of an RC Car</strong> is an interactive
+                        educational website that connects battery chemistry
+                        with motor physics and kinematics through the real-world
+                        application of powering an RC toy car.
+                    </p>
+
+                    <h3 class="mt-lg">Topics Covered</h3>
+                    <ol>
+                        <li>
+                            <strong>Battery Chemistry:</strong> Understand how AA batteries (Alkaline and Nickel-Metal
+                            Hydride)
+                            use redox reactions to produce electrons and store electrical energy.
+                        </li>
+                        <li>
+                            <strong>Motor Physics:</strong> Model how electric current creates magnetic fields
+                            using the right-hand rule and how motors convert electrical energy to rotation.
+                        </li>
+                        <li>
+                            <strong>Kinematics & Forces:</strong> Apply Newton's Laws and kinematics equations
+                            to calculate how motor torque creates motion in an RC car.
+                        </li>
+                        <li>
+                            <strong>Real-World Integration:</strong> Connect all concepts to the practical
+                            application of building and understanding RC car performance, and the variables that affect
+                            it.
+                        </li>
+                    </ol>
+
+                    <h3 class="mt-lg">Target Audience</h3>
+                    <p>
+                        Grade 11 students taking Chemistry 30S and Physics 30S (also has more advanced concepts),
+                        aligned with curriculum outcomes for these courses.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Rubric Mapping -->
+            <section class="section" id="rubric">
+                <h2>Rubric Breakdown</h2>
+
+                <p class="mb-lg">
+                    Just a quick breakdown of the rubric and how ChargedUP follows this
+                </p>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Rubric Criteria</th>
+                                <th style="width: 25%;">Site Component</th>
+                                <th style="width: 50%;">Evidence / Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Creativity & Originality -->
+                            <tr>
+                                <td rowspan="4" style="vertical-align: top;">
+                                    <strong>Creativity & Originality</strong>
+                                </td>
+                                <td>Interactive Calculators</td>
+                                <td>Custom battery and motor calculators with step-by-step work shown</td>
+                            </tr>
+                            <tr>
+                                <td>Visual Simulations</td>
+                                <td>Animated RC car (side-view & top-down track), electron flow, field visualizations
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Integrated Pipeline</td>
+                                <td>Simple approach linking battery output directly to the motor speed and car motion
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Website Design</td>
+                                <td>Personalized dark theme with custom logo, animations, and professional styling
+                                    (light mode as well)</td>
+                            </tr>
+
+                            <!-- Comprehension & Accuracy -->
+                            <tr>
+                                <td rowspan="4" style="vertical-align: top;">
+                                    <strong>Comprehension & Accuracy</strong>
+                                </td>
+                                <td>Educational Content</td>
+                                <td>Simple explanations of redox reactions, electromagnetism, kinematics, etc.</td>
+                            </tr>
+                            <tr>
+                                <td>Formulas & Constants</td>
+                                <td>Verified constant values, formulas, and calculations</td>
+                            </tr>
+                            <tr>
+                                <td>Worked Examples</td>
+                                <td>Multiple chemistry and physics problems with detailed step-by-step solutions</td>
+                            </tr>
+                            <tr>
+                                <td>Technical Notes</td>
+                                <td>Expandable sections to provide deeper detail for more complex concepts</td>
+                            </tr>
+
+                            <!-- Clarity & Communication -->
+                            <tr>
+                                <td rowspan="4" style="vertical-align: top;">
+                                    <strong>Clarity & Communication</strong>
+                                </td>
+                                <td>Glossary</td>
+                                <td>35+ defined terms with clear definitions, linked throughout site</td>
+                            </tr>
+                            <tr>
+                                <td>Navigation</td>
+                                <td>Clear header navigation, mode toggle, mobile-responsive hamburger menu</td>
+                            </tr>
+                            <tr>
+                                <td>Visualization</td>
+                                <td>Consistent typography, color coding (cyan/teal), cards for organization</td>
+                            </tr>
+                            <tr>
+                                <td>Accessibility</td>
+                                <td>ARIA labels, skip links, keyboard navigation, theme options</td>
+                            </tr>
+
+                            <!-- Application -->
+                            <tr>
+                                <td rowspan="4" style="vertical-align: top;">
+                                    <strong>Application</strong>
+                                </td>
+                                <td>Virtual Labs</td>
+                                <td>Limiting reactant visualizer, magnetic field mapper, battery discharge simulation -
+                                    based on real-world scenarios</td>
+                            </tr>
+                            <tr>
+                                <td>RC Car Simulator</td>
+                                <td>Side-view animation and top-down race track showing the calculated motion</td>
+                            </tr>
+                            <tr>
+                                <td>Real-World Connections</td>
+                                <td>Wesbite explains how physics and chemistry are applied to RC cars, motors, and
+                                    battery-powered devices</td>
+                            </tr>
+                            <tr>
+                                <td>Cross-Module Integration</td>
+                                <td>Chemistry calculator values directly impact the physics simulations for realistic
+                                    results; shows how the connection between sciences are seen in real life</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Feature Summary -->
+            <section class="section" id="features">
+                <h2>Feature Summary</h2>
+
+                <div class="grid grid--2">
+                    <div class="card">
+                        <h3>🔋 Chemistry Module</h3>
+                        <ul>
+                            <li>AA Alkaline (Zn/MnO₂) and NiMH battery chemistry</li>
+                            <li>Stoichiometry calculator with limiting reactant</li>
+                            <li>Pack voltage and capacity calculations</li>
+                            <li>Internal resistance and voltage sag</li>
+                            <li>Runtime estimation</li>
+                            <li>Presets: Single AA, 4×AA Pack</li>
+                            <li>Worked examples with solutions</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>⚡ Physics Module</h3>
+                        <ul>
+                            <li>Magnetic field calculations </li>
+                            <li>Right-hand rule visual</li>
+                            <li>Motor speed estimation</li>
+                            <li>Permeability effects (air, ferrite, steel)</li>
+                            <li>Newton's Laws and kinematics</li>
+                            <li>Torque to wheel force calculations</li>
+                            <li>Worked examples with solutions</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>🚗 RC Car Simulations</h3>
+                        <ul>
+                            <li>Side-view car with speed and force display</li>
+                            <li>Top-down oval track with lap timer</li>
+                            <li>Battery drain visualization</li>
+                            <li>Adjustable car mass and surface friction</li>
+                            <li>Energy usage per lap</li>
+                            <li>Chemistry → Physics data integration</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>🛠️ Technical Features</h3>
+                        <ul>
+                            <li>Dark/Light theme options (settings button in bottom right)</li>
+                            <li>Large text accessibility mode</li>
+                            <li>Cross-module data integration</li>
+                            <li>Mobile-responsive design</li>
+                            <li>Offline-capable website (if hosting locally)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Curriculum Alignment -->
+            <section class="section" id="curriculum">
+                <h2>Curriculum Outcomes</h2>
+
+                <div class="grid grid--2">
+                    <div class="card">
+                        <h3 class="text-cyan">Chemistry Outcomes</h3>
+                        <ul>
+                            <strong>1 - </strong> Mole concept and calculations<br>
+                            <strong>2 - </strong> Chemical equations and stoichiometry<br>
+                            <strong>3 - </strong> Properties of matter<br>
+                            <strong>4 - </strong> Chemical reactions<br>
+                            <strong>5 - </strong> Oxidation-reduction reactions
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-teal">Physics Outcomes</h3>
+                        <ul>
+                            <strong>1 - </strong> Electric circuits and current<br>
+                            <strong>2 - </strong> Electrical energy<br>
+                            <strong>3 - </strong> Magnetism and electromagnetism<br>
+                            <strong>4 - </strong> Electromagnetic applications<br>
+                            <strong>5 - </strong> Kinematics (motion)<br>
+                            <strong>6 - </strong> Dynamics (forces)
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Implementation -->
+            <section class="section" id="technical">
+                <h2>Technical Implementation</h2>
+
+                <div class="card">
+                    <h3>Technology Stack</h3>
+                    <p>
+                        ChargedUP uses "vanilla" web technologies — meaning it’s lightweight and doesn't require extra
+                        plugins. It’s fully accessible to screen readers and adapts to any screen size. It utilizes
+                        <strong>HTML5</strong> for the foundation and <strong>CSS3</strong> for a clean and responsive
+                        design, ensuring the site is fully accessible to screen readers and adapts to any screen size.
+                        The backend of the platform is powered by modern <strong>JavaScript (ES6+)</strong>, which
+                        handles the calculators, settings system, and the dynamic Canvas-based visualizations
+                        efficiently within the browser. To maintain a small footprint, the only external library used is
+                        <strong>jsPDF</strong> for the generated PDFs, which are downloadable by clicking on the button
+                        (for each specific PDF), throughout the website (Sources and About pages).
+                    </p>
+                </div>
+            </section>
+
+            <!-- Project Info -->
+            <section class="section" id="contact">
+                <h2>Project Information</h2>
+
+                <div class="card">
+                    <p>
+                        <strong>Website Name:</strong> ChargedUP: Behind The Scenes of an RC Car<br>
+                        <strong>Course:</strong> Grade 11 - Chemistry 30S and Physics 30S combined project<br>
+                        <strong>Date:</strong> January 23, 2026
+                    </p>
+
+                    <p class="mt-lg text-muted">
+                        This project was created as an educational resource to help students
+                        understand the connection between chemistry and physics through the
+                        real-world application of powering RC cars.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer no-print">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__links">
+                    <a href="glossary.html" class="footer__link">Glossary</a>
+                    <a href="sources.html" class="footer__link">Sources</a>
+                    <a href="about.html" class="footer__link">About</a>
+                </div>
+                <p class="footer__copy">
+                    ChargedUP: Behind The Scenes of an RC Car — 2026
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/gsap-animations.js"></script>
+    <script>
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'mm', 'a4');
+
+            // Title
+            doc.setFontSize(26);
+            doc.setTextColor(0, 209, 255);
+            doc.text('ChargedUP', 20, 25);
+
+            doc.setFontSize(14);
+            doc.setTextColor(100, 100, 100);
+            doc.text('Behind The Scenes of an RC Car - Project Summary', 20, 35);
+
+            doc.setFontSize(10);
+            doc.setTextColor(150, 150, 150);
+
+            // Overview
+            doc.setFontSize(14);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Project Overview', 20, 55);
+            doc.setFontSize(10);
+            const overview = doc.splitTextToSize(
+                'ChargedUP is an interactive educational website that connects battery chemistry with motor physics and kinematics through the real-world application of powering an RC toy car.',
+                170
+            );
+            doc.text(overview, 20, 63);
+
+            // Learning Goals
+            doc.setFontSize(14);
+            doc.text('Topics', 20, 90);
+            doc.setFontSize(10);
+            doc.text('1. Understand AA battery chemistry (Alkaline and NiMH redox reactions)', 25, 98);
+            doc.text('2. Model how electric current creates magnetic fields using the right-hand rule', 25, 105);
+            doc.text('3. Apply Newton\'s Laws and kinematics to calculate RC car motion', 25, 112);
+            doc.text('4. Connect all the concepts through the real-world application of RC cars', 25, 119);
+
+            // Key Features
+            doc.setFontSize(14);
+            doc.text('Key Features', 20, 135);
+            doc.setFontSize(10);
+            doc.text('• Battery calculator with stoichiometry and pack configurations', 25, 143);
+            doc.text('• Motor simulator with magnetic field visualization', 25, 150);
+            doc.text('• Interactive RC car simulations (side-view and race track)', 25, 157);
+            doc.text('• Kinematics calculator (F=ma, acceleration, velocity)', 25, 164);
+            doc.text('• Settings button to modify website theme and layout', 25, 171);
+            doc.text('• Multiple worked examples with step-by-step solutions', 25, 178);
+
+            // Rubric Mapping Summary
+            doc.setFontSize(14);
+            doc.text('Rubric Breakdown Summary', 20, 195);
+            doc.setFontSize(10);
+            doc.text('Creativity: Interactive calculators, RC car simulations, website design', 25, 203);
+            doc.text('Comprehension: Verified formulas, worked examples, simple concept explanations', 25, 210);
+            doc.text('Clarity: 35+ glossary terms, clear navigation, accessibility features', 25, 217);
+            doc.text('Application: Virtual labs, RC car simulator, real-world scenarios/calculations', 25, 224);
+
+            // Curriculum Alignment
+            doc.setFontSize(14);
+            doc.text('Curriculum Alignment', 20, 240);
+            doc.setFontSize(10);
+            doc.text('Chemistry 30S: chemical reactions, stoichiometry, mole concept, properties of matter', 25, 248);
+            doc.text('Physics 30S: kinematics, dynamics, magnetism, electromagnetic applications', 25, 255);
+
+            // Footer
+            doc.setFontSize(9);
+            doc.setTextColor(150, 150, 150);
+            doc.text('Grade 11 Chemistry 30S + Physics 30S Final Project', 20, 280);
+            doc.text('Aayan Sikri', 20, 286);
+            doc.text('2026', 20, 292);
+
+
+            doc.save('ChargedUP - Project Summary.pdf');
+        }
+
+        async function downloadResourcesPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'mm', 'a4');
+            const pageWidth = 210;
+            const pageHeight = 297;
+            const margin = 15;
+            const colWidth = (pageWidth - 3 * margin) / 2;
+
+            // Title
+            doc.setFontSize(24);
+            doc.setTextColor(7, 23, 51);
+            doc.text('Additional Resources', pageWidth / 2, 22, { align: 'center' });
+
+            // Subtitle
+            doc.setFontSize(11);
+            doc.setTextColor(0, 136, 170);
+            doc.text('ChargedUP: Behind The Scenes of an RC Car', pageWidth / 2, 30, { align: 'center' });
+
+            // Intro paragraph
+            doc.setFontSize(10);
+            doc.setTextColor(71, 85, 105);
+            const intro = doc.splitTextToSize(
+                'These additional resources will help enhance your understanding of the chemistry and physics concepts ' +
+                'covered in ChargedUP and further expand your knowledge. Through interactive simulations, video tutorials, and simple explanations, these materials provide ' +
+                'various ways to explore these concepts. Use these resources for deeper learning!',
+                pageWidth - 2 * margin
+            );
+            doc.text(intro, margin, 42);
+
+            let yPos = 68;
+
+            // Chemistry Section Header
+            doc.setFillColor(0, 136, 170);
+            doc.rect(margin, yPos, colWidth - 3, 8, 'F');
+            doc.setFontSize(11);
+            doc.setTextColor(255, 255, 255);
+            doc.text('CHEMISTRY RESOURCES', margin + 3, yPos + 6);
+
+            // Physics Section Header
+            doc.setFillColor(13, 138, 111);
+            doc.rect(margin + colWidth + 3, yPos, colWidth - 3, 8, 'F');
+            doc.text('PHYSICS RESOURCES', margin + colWidth + 6, yPos + 6);
+
+            yPos += 14;
+
+            // Chemistry Resources with URLs
+            const chemResources = [
+                { name: 'Khan Academy - Science', url: 'khanacademy.org/science', desc: 'Free comprehensive video courses on chemistry, redox reactions, and electrochemistry' },
+                { name: 'PhET Battery Simulation', url: 'phet.colorado.edu', desc: 'Interactive battery voltage and circuit simulations from University of Colorado' },
+                { name: 'Chemistry LibreTexts', url: 'chem.libretexts.org', desc: 'University-level chemistry textbook with detailed explanations' },
+                { name: 'Tyler DeWitt (YouTube)', url: 'youtube.com/@tdewitt451', desc: 'Engaging, student-friendly chemistry videos with clear explanations' },
+                { name: 'Professor Dave Explains', url: 'youtube.com/@ProfessorDaveExplains', desc: 'Electrochemistry and general chemistry tutorials with worked examples' },
+                { name: 'Crash Course Chemistry', url: 'youtube.com/@crashcourse', desc: 'Fast-paced chemistry video series covering key concepts' },
+                { name: 'ChemGuide', url: 'chemguide.co.uk', desc: 'Detailed notes on electrochemical cells, redox reactions, and electrode potentials' },
+                { name: 'Periodic Videos', url: 'youtube.com/@periodicvideos', desc: 'Element-focused videos from University of Nottingham chemistry department' },
+                { name: 'ACS Education', url: 'acs.org/education', desc: 'American Chemical Society resources, activities, and lesson plans' },
+                { name: 'Bozeman Science', url: 'youtube.com/@Bozemanscience1', desc: 'AP Chemistry prep videos with clear concept breakdowns' }
+            ];
+
+            // Physics Resources with URLs
+            const physResources = [
+                { name: 'HyperPhysics', url: 'hyperphysics.gsu.edu/hbase/index.html', desc: 'Georgia State University physics encyclopedia with concept maps' },
+                { name: 'PhET Electromagnets', url: 'phet.colorado.edu', desc: 'Interactive magnetic field and electromagnet simulations' },
+                { name: 'The Physics Classroom', url: 'physicsclassroom.com', desc: 'Complete tutorials on forces, motion, and kinematics with problems' },
+                { name: 'Veritasium', url: 'youtube.com/@veritasium', desc: 'Fascinating physics demonstrations and counterintuitive explanations' },
+                { name: 'MinutePhysics', url: 'youtube.com/@minutephysics', desc: 'Quick animated explanations of physics concepts in under 5 minutes' },
+                { name: '3Blue1Brown', url: 'youtube.com/@3blue1brown', desc: 'Engaging visual intuition for physics concepts' },
+                { name: 'MIT OpenCourseWare', url: 'ocw.mit.edu', desc: 'Free MIT physics lectures on topics like electromagnetics' },
+                { name: 'Flipping Physics', url: 'youtube.com/@FlippingPhysics', desc: 'Physics review with problem-solving strategies' },
+                { name: 'Physics Girl', url: 'youtube.com/@physicsgirl', desc: 'Fun physics experiments and demonstrations' },
+                { name: 'Real Engineering', url: 'youtube.com/@RealEngineering', desc: 'Applied physics in real-world engineering problems' }
+            ];
+
+            doc.setFontSize(7);
+
+            // Draw resources in two columns
+            for (let i = 0; i < Math.max(chemResources.length, physResources.length); i++) {
+                if (yPos > pageHeight - 25) break;
+
+                // Chemistry column
+                if (i < chemResources.length) {
+                    doc.setTextColor(0, 100, 140);
+                    doc.setFont(undefined, 'bold');
+                    doc.text(chemResources[i].name, margin, yPos);
+                    doc.setFont(undefined, 'normal');
+                    doc.setTextColor(0, 136, 170);
+                    const chemUrl = chemResources[i].url;
+                    const chemUrlText = doc.text(chemUrl, margin, yPos + 3.5);
+                    // Add hyperlink
+                    const chemUrlWidth = doc.getTextWidth(chemUrl);
+                    doc.link(margin, yPos + 1, chemUrlWidth, 4, { url: 'https://' + chemUrl });
+                    doc.setTextColor(71, 85, 105);
+                    const chemDesc = doc.splitTextToSize(chemResources[i].desc, colWidth - 8);
+                    doc.text(chemDesc, margin, yPos + 7);
+                }
+
+                // Physics column
+                if (i < physResources.length) {
+                    doc.setTextColor(10, 110, 88);
+                    doc.setFont(undefined, 'bold');
+                    doc.text(physResources[i].name, margin + colWidth + 3, yPos);
+                    doc.setFont(undefined, 'normal');
+                    doc.setTextColor(13, 138, 111);
+                    const physUrl = physResources[i].url;
+                    doc.text(physUrl, margin + colWidth + 3, yPos + 3.5);
+                    // Add hyperlink
+                    const physUrlWidth = doc.getTextWidth(physUrl);
+                    doc.link(margin + colWidth + 3, yPos + 1, physUrlWidth, 4, { url: 'https://' + physUrl });
+                    doc.setTextColor(71, 85, 105);
+                    const physDesc = doc.splitTextToSize(physResources[i].desc, colWidth - 8);
+                    doc.text(physDesc, margin + colWidth + 3, yPos + 7);
+                }
+
+                yPos += 18;
+            }
+
+            // Footer
+            doc.setDrawColor(200, 200, 200);
+            doc.setLineWidth(0.3);
+            doc.line(margin, pageHeight - 18, pageWidth - margin, pageHeight - 18);
+
+            doc.setFontSize(8);
+            doc.setTextColor(120, 120, 120);
+            doc.text('ChargedUP | Chemistry30S + Physics30S', pageWidth / 2, pageHeight - 12, { align: 'center' });
+            doc.text('2026 | Aayan Sikri', pageWidth / 2, pageHeight - 8, { align: 'center' });
+
+            doc.save('ChargedUP - Additional Resources.pdf');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="ChargedUP: An interactive educational platform exploring how batteries power RC cars through chemistry and physics.">
+  <meta name="keywords"
+    content="chemistry, physics, batteries, RC car, motors, education, Grade 11, science curriculum">
+  <title>ChargedUP: Behind The Scenes of an RC Car</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo" aria-label="ChargedUP Home">
+        <img src="assets/logo.svg" alt="" width="40" height="40">
+        <span>ChargedUP</span>
+      </a>
+
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
+          <li><a href="chemistry.html" class="nav__link">Chemistry</a></li>
+          <li><a href="physics.html" class="nav__link">Physics</a></li>
+          <li><a href="integrated.html" class="nav__link">Integrated</a></li>
+          <li><a href="simulations.html" class="nav__link">Simulations</a></li>
+          <li><a href="glossary.html" class="nav__link">Glossary</a></li>
+          <li><a href="sources.html" class="nav__link">Sources</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+        </ul>
+
+        <div class="mode-toggle" role="group" aria-label="Subject mode toggle">
+          <button class="mode-toggle__btn mode-toggle__btn--active" data-mode="chemistry" aria-pressed="true">
+            <span>🔋</span> Chemistry
+          </button>
+          <button class="mode-toggle__btn" data-mode="physics" aria-pressed="false">
+            <span>🚗</span> Physics
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="page-wrapper">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__background">
+        <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+      </div>
+
+      <div class="hero__content animate-fade-in">
+        <h1 id="hero-title" class="hero__title">ChargedUP</h1>
+        <h3 class="hero__subtitle, text-teal mb-md">Behind The Scenes of an RC Car</h3>
+
+        <h4><br>By Aayan Sikri</h4>
+        <h4>January 23, 2026</h4>
+
+        <p class="hero__description">
+          <br>An interactive exploration connecting <strong>battery chemistry</strong> and
+          <strong>motor physics</strong> to understand how an RC car works.
+          Discover how chemical reactions in batteries produce the power that drives motors.
+        </p>
+
+        <div class="hero__cta">
+          <a href="chemistry.html" class="btn btn--primary btn--lg">
+            <span>🔋</span> Explore Battery Chemistry
+          </a>
+          <a href="physics.html" class="btn btn--secondary btn--lg">
+            <span>⚡</span> Explore Motor Physics
+          </a>
+          <a href="simulations.html#rc-car-simulator" class="btn btn--ghost btn--lg">
+            <span>🚗</span> Try RC Car Simulator
+          </a>
+        </div>
+
+        <div class="hero__links">
+          <a href="glossary.html">📖 Glossary</a>
+          <span>•</span>
+          <a href="sources.html">📚 Sources</a>
+          <span>•</span>
+          <a href="about.html">👤 About</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learning Objectives Section -->
+    <section class="section" aria-labelledby="objectives-title">
+      <div class="container">
+        <h2 id="objectives-title" class="text-center mb-xl">Learning Objectives</h2>
+
+        <div class="grid grid--4">
+          <article class="card feature-card animate-fade-in stagger-1">
+            <div class="feature-card__icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="6" y="4" width="12" height="16" rx="2" />
+                <line x1="10" y1="2" x2="14" y2="2" />
+                <line x1="12" y1="10" x2="12" y2="14" />
+                <line x1="10" y1="12" x2="14" y2="12" />
+              </svg>
+            </div>
+            <h3 class="card__title text-center">Battery Chemistry</h3>
+            <p class="text-center">
+              Understand how AA batteries use <a href="glossary.html#redox">redox reactions</a> to produce electrons and
+              electrical energy.
+            </p>
+          </article>
+
+          <article class="card feature-card animate-fade-in stagger-2">
+            <div class="feature-card__icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="8" />
+                <path d="M12 8v4l2 2" />
+                <path d="M4 12h2" />
+                <path d="M18 12h2" />
+              </svg>
+            </div>
+            <h3 class="card__title text-center">DC Motors</h3>
+            <p class="text-center">
+              Learn how electric <a href="glossary.html#current">current</a> creates <a
+                href="glossary.html#magnetic-field">magnetic fields</a> that make motors spin.
+            </p>
+          </article>
+
+          <article class="card feature-card animate-fade-in stagger-3">
+            <div class="feature-card__icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="2" width="16" height="20" rx="2" />
+                <line x1="8" y1="6" x2="16" y2="6" />
+                <line x1="8" y1="10" x2="16" y2="10" />
+                <line x1="8" y1="14" x2="12" y2="14" />
+              </svg>
+            </div>
+            <h3 class="card__title text-center">Kinematics & Forces</h3>
+            <p class="text-center">
+              Calculate how motor torque translates to acceleration, speed, and motion.
+            </p>
+          </article>
+
+          <article class="card feature-card animate-fade-in stagger-4">
+            <div class="feature-card__icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 17h14M5 17a2 2 0 01-2-2V9a2 2 0 012-2h14a2 2 0 012 2v6a2 2 0 01-2 2" />
+                <circle cx="7" cy="17" r="2" />
+                <circle cx="17" cy="17" r="2" />
+              </svg>
+            </div>
+            <h3 class="card__title text-center">RC Car Integration</h3>
+            <p class="text-center">
+              See how the battery, motor, and physics combine to make an RC car move.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section section--alt" aria-labelledby="howitworks-title">
+      <div class="container">
+        <h2 id="howitworks-title" class="text-center mb-xl">How ChargedUP Works</h2>
+
+        <div class="grid grid--3">
+          <article class="card">
+            <div class="card__header">
+              <span class="card__icon text-cyan">1</span>
+              <h3 class="card__title">Battery: Chemical Energy</h3>
+            </div>
+            <div class="card__content">
+              <p>
+                Start with AA batteries using <strong>Alkaline (Zn/MnO₂)</strong> or
+                <strong>Nickel-Metal Hydride (NiMH)</strong> chemistry. Calculate how many electrons are released
+                and how much energy is stored.
+              </p>
+              <a href="chemistry.html" class="btn btn--ghost btn--sm mt-md">
+                Open Chemistry Module →
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__header">
+              <span class="card__icon text-cyan">2</span>
+              <h3 class="card__title">Motor: Electrical to Mechanical</h3>
+            </div>
+            <div class="card__content">
+              <p>
+                Electrons flow as current through the motor coils. Use the
+                <strong>right-hand rule</strong> to understand how current creates magnetic
+                fields that spin the motor.
+              </p>
+              <a href="physics.html" class="btn btn--ghost btn--sm mt-md">
+                Open Physics Module →
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__header">
+              <span class="card__icon text-cyan">3</span>
+              <h3 class="card__title">Motion: Forces & Kinematics</h3>
+            </div>
+            <div class="card__content">
+              <p>
+                Motor torque creates force at the wheels. Use dynamics
+                and kinematics to calculate acceleration, velocity, and how fast
+                your RC car can go!
+              </p>
+              <a href="simulations.html#rc-car-simulator" class="btn btn--ghost btn--sm mt-md">
+                Try RC Car Simulator →
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section class="section" aria-labelledby="quickstart-title">
+      <div class="container content-container">
+        <h2 id="quickstart-title" class="text-center mb-xl">Quick Start</h2>
+
+        <div class="card">
+          <div class="card__content">
+            <h3>🚗 Power Your RC Car</h3>
+            <p>
+              Follow this path to understand the complete energy chain:
+            </p>
+
+            <ol class="mb-lg">
+              <li class="mb-sm">
+                <strong>Battery Setup:</strong> Use the <a href="chemistry.html">Chemistry Calculator</a>
+                to configure a 4×AA battery pack (6 Volts, 2000 milliampere-hours)
+              </li>
+              <li class="mb-sm">
+                <strong>Motor Analysis:</strong> Import battery data into the
+                <a href="physics.html">Physics Simulator</a> to see motor magnetic field and estimated speed
+              </li>
+              <li class="mb-sm">
+                <strong>Car Motion:</strong> Use the <a href="simulations.html">RC Car Simulator</a>
+                to visualize acceleration and motion
+              </li>
+              <li class="mb-sm">
+                <strong>Race!</strong> Try the top-down (view) race track to see your car in action
+              </li>
+            </ol>
+
+            <div class="flex gap-md">
+              <a href="chemistry.html?preset=4aa-alkaline#battery-calculator" class="btn btn--primary">
+                Start with 4×AA Pack →
+              </a>
+              <a href="simulations.html#rc-car-simulator" class="btn btn--secondary">
+                Try Virtual RC Car
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curriculum Alignment Section -->
+    <section class="section section--alt" aria-labelledby="curriculum-title">
+      <div class="container content-container">
+        <h2 id="curriculum-title" class="text-center mb-xl">Curriculum Outcomes</h2>
+
+        <div class="grid grid--2">
+          <div class="card">
+            <h3 class="text-cyan mb-md">Chemistry 30S</h3>
+            <ul>
+              <li>Mole concept and molar mass calculations</li>
+              <li>Balancing chemical equations</li>
+              <li>Stoichiometry and limiting reactants</li>
+              <li>Oxidation-reduction reactions</li>
+              <li>Electrochemical cells (batteries)</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="text-teal mb-md">Physics 30S</h3>
+            <ul>
+              <li>Electric current and circuits</li>
+              <li>Magnetic fields from currents</li>
+              <li>Right-hand rule applications</li>
+              <li>Newton's Laws and kinematics</li>
+              <li>Energy conversions</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="text-center mt-xl text-muted">
+          See the <a href="about.html">About</a> page for project overview and feature summary.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__links">
+          <a href="glossary.html" class="footer__link">Glossary</a>
+          <a href="sources.html" class="footer__link">Sources</a>
+          <a href="about.html" class="footer__link">About</a>
+        </div>
+        <p class="footer__copy">
+          ChargedUP: Behind The Scenes of an RC Car — Created for students by students
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/gsap-animations.js"></script>
+</body>
+
+</html>

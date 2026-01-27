@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sources and references for ChargedUP educational content.">
+    <title>Sources & References | ChargedUP</title>
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="header">
+        <div class="header__inner">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo.svg" alt="" width="40" height="40">
+                <span>ChargedUP</span>
+            </a>
+
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="nav-toggle__bar"></span>
+                    <span class="nav-toggle__bar"></span>
+                    <span class="nav-toggle__bar"></span>
+                </button>
+
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="chemistry.html" class="nav__link">Chemistry</a></li>
+                    <li><a href="physics.html" class="nav__link">Physics</a></li>
+                    <li><a href="integrated.html" class="nav__link">Integrated</a></li>
+                    <li><a href="simulations.html" class="nav__link">Simulations</a></li>
+                    <li><a href="glossary.html" class="nav__link">Glossary</a></li>
+                    <li><a href="sources.html" class="nav__link nav__link--active">Sources</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                </ul>
+
+                <div class="mode-toggle">
+                    <button class="mode-toggle__btn" data-mode="chemistry">🔋 Chemistry</button>
+                    <button class="mode-toggle__btn" data-mode="physics">🚗 Physics</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="page-wrapper">
+        <div class="container content-container">
+            <div class="section">
+                <h1>Sources & References</h1>
+                <p class="text-muted">
+                    All sources used in ChargedUP, formatted in APA style. Click the links to access original sources.
+                </p>
+            </div>
+
+            <!-- Download Button -->
+            <div class="section" style="margin-bottom: 0;">
+                <button class="btn btn--primary" onclick="downloadCitationsPDF()">
+                    📄 Sources (PDF)
+                </button>
+            </div>
+
+            <!-- Chemistry Sources -->
+            <section class="section" id="chemistry-sources">
+                <h2>🔋 Chemistry Sources</h2>
+
+                <div class="card mb-lg">
+                    <h3>Battery Chemistry & Electrochemistry</h3>
+                    <ul class="sources-list">
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Energizer. (2023). Product Datasheet - Energizer E91. Energizer Technical Information.
+                                <a href="https://data.energizer.com/pdfs/e91.pdf" target="_blank" rel="noopener">
+                                    http://data.energizer.com/pdfs/e91.pdf ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: AA alkaline battery specifications, voltage curves, capacity data
+                            </p>
+                        </li>
+                        <li class="source-item">
+                            <p class="source-citation">
+                                4.4: Oxidation-reduction reactions. Chemistry LibreTexts. (2023, July).
+                                <a href="https://chem.libretexts.org/Bookshelves/General_Chemistry/Map%3A_Chemistry_-_The_Central_Science_(Brown_et_al.)/04%3A_Reactions_in_Aqueous_Solution/4.04%3A_Oxidation-Reduction_Reactions"
+                                    target="_blank" rel="noopener">
+                                    https://chem.libretexts.org ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Redox reaction concepts, oxidation states, half-reactions
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card mb-lg">
+                    <h3>Stoichiometry & Mole Concept</h3>
+                    <ul class="sources-list">
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Periodic Table of elements. IUPAC. (2022, September).
+                                <a href="https://iupac.org/what-we-do/periodic-table-of-elements/" target="_blank"
+                                    rel="noopener">
+                                    https://iupac.org/what-we-do/periodic-table-of-elements/ ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Atomic masses
+                            </p>
+                        </li>
+                        <li class="source-item">
+                            <p class="source-citation">
+                                CODATA. (2022). CODATA Internationally recommended 2022 values of the Fundamental
+                                Physical Constants. Fundamental physical constants from NIST.
+                                <a href="https://physics.nist.gov/cuu/Constants/" target="_blank" rel="noopener">
+                                    https://physics.nist.gov/cuu/Constants/ ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Faraday constant (F = 96,485 C/mol), Avogadro's number
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Physics Sources -->
+            <section class="section" id="physics-sources">
+                <h2>⚡ Physics Sources</h2>
+
+                <div class="card mb-lg">
+                    <h3>Electromagnetism</h3>
+                    <ul class="sources-list">
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Georgia State University. (2024). Solenoid. HyperPhysics.
+                                <a href="https://hyperphysics.gsu.edu/hbase/magnetic/solenoid.html" target="_blank"
+                                    rel="noopener">
+                                    https://hyperphysics.gsu.edu/hbase/magnetic/solenoid.html ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Solenoid magnetic field formula, field line diagrams
+                            </p>
+                        </li>
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Georgia State University. (2024). Magnetic field of current loop. HyperPhysics.
+                                <a href="https://hyperphysics.gsu.edu/hbase/magnetic/curloo.html" target="_blank"
+                                    rel="noopener">
+                                    https://hyperphysics.gsu.edu/hbase/magnetic/curloo.html ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Circular loop magnetic field formula
+                            </p>
+                        </li>
+                        <li class="source-item">
+                            <p class="source-citation">
+                                CODATA. (2022). Fundamental Physics Constants. The NIST Reference on Constants, Units,
+                                and Uncertainty.
+                                <a href="https://physics.nist.gov/cgi-bin/cuu/Value?mu0" target="_blank" rel="noopener">
+                                    https://physics.nist.gov/cgi-bin/cuu/Value?mu0 ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: permeability of free space constant
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card mb-lg">
+                    <h3>DC Motors</h3>
+                    <ul class="sources-list">
+                        <li class="source-item">
+                            <p class="source-citation">
+                                How a DC motor actually works. Magnetic Innovations. (2024).
+                                <a href="https://www.magneticinnovations.com/faq/dc-motor-how-it-works/" target="_blank"
+                                    rel="noopener">
+                                    https://www.magneticinnovations.com/faq/dc-motor-how-it-works/ ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: DC motor principles, torque-speed characteristics, educational explanations
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card mb-lg">
+                    <h3>Kinematics & Dynamics</h3>
+                    <ul class="sources-list">
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Georgia State University. (2024). Newton's Laws. HyperPhysics.
+                                <a href="https://hyperphysics.gsu.edu/hbase/Newt.html" target="_blank" rel="noopener">
+                                    https://hyperphysics.gsu.edu/hbase/Newt.html ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: F = ma, force analysis
+                            </p>
+                        </li>
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Henderson, T. (2021). 1-D kinematics: Describing the motion of objects. The Physics
+                                Classroom.
+                                <a href="https://www.physicsclassroom.com/class/1DKin" target="_blank" rel="noopener">
+                                    https://www.physicsclassroom.com/class/1DKin ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Kinematic equations, velocity and acceleration concepts
+                            </p>
+                        </li>
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Georgia State University. (2024). Friction. HyperPhysics.
+                                <a href="https://hyperphysics.gsu.edu/hbase/frict.html" target="_blank" rel="noopener">
+                                    https://hyperphysics.gsu.edu/hbase/frict.html ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Friction coefficients, static vs kinetic friction
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card mb-lg">
+                    <h3>Material Properties</h3>
+                    <ul class="sources-list">
+                        <li class="source-item">
+                            <p class="source-citation">
+                                The Engineering ToolBox (2016). Permeability.
+                                <a href="https://www.engineeringtoolbox.com/permeability-d_1923.html" target="_blank"
+                                    rel="noopener">
+                                    https://www.engineeringtoolbox.com/permeability-d_1923.html ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Relative permeability values (ferrite μᵣ ≈ 2000, steel μᵣ ≈ 4000)
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Educational Frameworks -->
+            <section class="section" id="curriculum-sources">
+                <h2>📚 Educational & Curriculum Sources</h2>
+
+                <div class="card mb-lg">
+                    <h3>Curriculum Documents</h3>
+                    <ul class="sources-list">
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Government of Manitoba. (2006). Education and early childhood learning. Science |
+                                Manitoba Education and Early Childhood Learning.
+                                <a href="https://www.edu.gov.mb.ca/k12/cur/science/found/gr11_chem/" target="_blank"
+                                    rel="noopener">
+                                    https://www.edu.gov.mb.ca/k12/cur/science/found/gr11_chem/ ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Chemistry 30S curriculum outcomes alignment
+                            </p>
+                        </li>
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Government of Manitoba. (2003). Science - Senior 3 Physics (30S). Manitoba Education and
+                                Early Childhood Learning.
+                                <a href="https://www.edu.gov.mb.ca/k12/cur/science/found/physics30s/index.html"
+                                    target="_blank" rel="noopener">
+                                    https://www.edu.gov.mb.ca/k12/cur/science/found/physics30s/index.html ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Physics 30S curriculum outcomes alignment
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Images & Media -->
+            <section class="section" id="media-sources">
+                <h2>🖼️ Images & Media</h2>
+
+                <div class="card">
+                    <ul class="sources-list">
+                        <li class="source-item">
+                            <p class="source-citation">
+                                All icons, logos, and diagrams were created originally for this project using SVG
+                                graphics.
+                            </p>
+                        </li>
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Andersson, R. (2017). Inter. Google Fonts.
+                                <a href="https://fonts.google.com/specimen/Inter" target="_blank" rel="noopener">
+                                    https://fonts.google.com/specimen/Inter ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Website text and design elements
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Programming Sources -->
+            <section class="section" id="programming-sources">
+                <h2>💻 Programming (Building Website)</h2>
+
+                <div class="card mb-lg">
+                    <h3>Web Development Resources</h3>
+                    <ul class="sources-list">
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Docs, M. W. (2020). Canvas API. MDN Web Docs.
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank"
+                                    rel="noopener">
+                                    https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Canvas drawing techniques for animations, physics visualizations
+                            </p>
+                        </li>
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Docs, M. W. (2000). JavaScript Guide. MDN Web Docs.
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank"
+                                    rel="noopener">
+                                    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: JavaScript ES6+ syntax, classes, modules
+                            </p>
+                        </li>
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Schools, W. (2023). CSS Tutorial. W3Schools Online Web Tutorials.
+                                <a href="https://www.w3schools.com/css/" target="_blank" rel="noopener">
+                                    https://www.w3schools.com/css/ ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: CSS styling patterns, responsive design, CSS variables
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card mb-lg">
+                    <h3>Animation Libraries</h3>
+                    <ul class="sources-list">
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Doyle, J. (2019). Animate Anything. GSAP.
+                                <a href="https://gsap.com/docs/v3/" target="_blank" rel="noopener">
+                                    https://gsap.com/docs/v3/ ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Page transitions, scroll-triggered animations, ScrollTrigger plugin
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Community Resources</h3>
+                    <ul class="sources-list">
+                        <li class="source-item">
+                            <p class="source-citation">
+                                Atwood, J., & Spolsky, J. (2008). Newest questions. Stack Overflow.
+                                <a href="https://stackoverflow.com/questions" target="_blank" rel="noopener">
+                                    https://stackoverflow.com/questions ↗
+                                </a>
+                            </p>
+                            <p class="source-note text-muted">
+                                Used for: Troubleshooting canvas rendering, animation frame timing, UI flickering
+                            </p>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__links">
+                    <a href="glossary.html" class="footer__link">Glossary</a>
+                    <a href="sources.html" class="footer__link">Sources</a>
+                    <a href="about.html" class="footer__link">About</a>
+                </div>
+                <p class="footer__copy">
+                    ChargedUP: Behind The Scenes of an RC Car — 2026 <br> By Aayan Sikri
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/gsap-animations.js"></script>
+    <script>
+        function downloadCitationsPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const pageHeight = doc.internal.pageSize.getHeight();
+            const margin = 20;
+            const maxWidth = pageWidth - (margin * 2);
+            let yPos = margin;
+
+            // Light mode colors
+            const titleColor = [0, 128, 128];
+            const sectionColor = [0, 100, 100];
+            const subheadingColor = [50, 50, 50];
+            const textDark = [33, 33, 33];
+            const linkColor = [0, 100, 180];
+            const textMuted = [100, 100, 100];
+
+            // Helper to check page break
+            function checkPageBreak(needed) {
+                if (yPos + needed > pageHeight - 20) {
+                    doc.addPage();
+                    yPos = margin;
+                }
+            }
+
+            // Helper to add citation with hyperlink
+            // Now supports displayUrl parameter to show a shortened URL while linking to full URL
+            function addCitation(text, url, displayUrl = null) {
+                checkPageBreak(20);
+                doc.setTextColor(...textDark);
+                doc.setFontSize(9);
+                doc.setFont('helvetica', 'normal');
+                const lines = doc.splitTextToSize(text, maxWidth - 10);
+                doc.text(lines, margin + 10, yPos);
+                yPos += lines.length * 4;
+
+                if (url) {
+                    doc.setTextColor(...linkColor);
+                    const urlToDisplay = displayUrl || url;
+                    doc.textWithLink(urlToDisplay, margin + 15, yPos, { url: url });
+                    yPos += 5;
+                }
+                yPos += 3;
+            }
+
+            // Helper to add subheading
+            function addSubheading(text) {
+                checkPageBreak(15);
+                doc.setTextColor(...subheadingColor);
+                doc.setFontSize(11);
+                doc.setFont('helvetica', 'bold');
+                doc.text(text, margin + 5, yPos);
+                yPos += 8;
+            }
+
+            // Helper to add section heading
+            function addSection(text) {
+                checkPageBreak(20);
+                yPos += 5;
+                doc.setTextColor(...sectionColor);
+                doc.setFontSize(14);
+                doc.setFont('helvetica', 'bold');
+                doc.text(text, margin, yPos);
+                yPos += 10;
+            }
+
+            // Title
+            doc.setTextColor(...titleColor);
+            doc.setFontSize(22);
+            doc.setFont('helvetica', 'bold');
+            doc.text('ChargedUP - Sources', margin, yPos);
+            yPos += 10;
+
+            doc.setTextColor(...textMuted);
+            doc.setFontSize(10);
+            doc.setFont('helvetica', 'normal');
+            doc.text('All sources formatted in APA 7th Format', margin, yPos);
+            yPos += 15;
+
+            // ========== CHEMISTRY SOURCES ==========
+            addSection('Chemistry Sources');
+
+            addSubheading('Battery Chemistry & Electrochemistry');
+            addCitation('Energizer. (2023). Product Datasheet - Energizer E91. Energizer Technical Information.',
+                'https://data.energizer.com/pdfs/e91.pdf');
+            addCitation('4.4: Oxidation-reduction reactions. Chemistry LibreTexts. (2023, July).',
+                'https://chem.libretexts.org/Bookshelves/General_Chemistry/Map%3A_Chemistry_-_The_Central_Science_(Brown_et_al.)/04%3A_Reactions_in_Aqueous_Solution/4.04%3A_Oxidation-Reduction_Reactions',
+                'https://chem.libretexts.org');
+
+            addSubheading('Stoichiometry & Mole Concept');
+            addCitation('Periodic Table of elements. IUPAC. (2022, September).',
+                'https://iupac.org/what-we-do/periodic-table-of-elements/');
+            addCitation('CODATA. (2022). CODATA Internationally recommended 2022 values of the Fundamental Physical Constants. NIST.',
+                'https://physics.nist.gov/cuu/Constants/');
+
+            // ========== PHYSICS SOURCES ==========
+            addSection('Physics Sources');
+
+            addSubheading('Electromagnetism');
+            addCitation('Georgia State University. (2024). Solenoid. HyperPhysics.',
+                'https://hyperphysics.gsu.edu/hbase/magnetic/solenoid.html');
+            addCitation('Georgia State University. (2024). Magnetic field of current loop. HyperPhysics.',
+                'https://hyperphysics.gsu.edu/hbase/magnetic/curloo.html');
+            addCitation('CODATA. (2022). Fundamental Physics Constants. NIST Reference on Constants.',
+                'https://physics.nist.gov/cgi-bin/cuu/Value?mu0');
+
+            addSubheading('DC Motors');
+            addCitation('How a DC motor actually works. Magnetic Innovations. (2024).',
+                'https://www.magneticinnovations.com/faq/dc-motor-how-it-works/');
+
+            addSubheading('Kinematics & Dynamics');
+            addCitation('Georgia State University. (2024). Newton\'s Laws. HyperPhysics.',
+                'https://hyperphysics.gsu.edu/hbase/Newt.html');
+            addCitation('Henderson, T. (2021). 1-D kinematics: Describing the motion of objects. The Physics Classroom.',
+                'https://www.physicsclassroom.com/class/1DKin');
+            addCitation('Georgia State University. (2024). Friction. HyperPhysics.',
+                'https://hyperphysics.gsu.edu/hbase/frict.html');
+
+            addSubheading('Material Properties');
+            addCitation('The Engineering ToolBox. (2016). Permeability.',
+                'https://www.engineeringtoolbox.com/permeability-d_1923.html');
+
+            // ========== EDUCATIONAL SOURCES ==========
+            addSection('Educational & Curriculum Sources');
+
+            addSubheading('Curriculum Documents');
+            addCitation('Government of Manitoba. (2006). Science - Chemistry 30S. Manitoba Education.',
+                'https://www.edu.gov.mb.ca/k12/cur/science/found/gr11_chem/');
+            addCitation('Government of Manitoba. (2003). Science - Senior 3 Physics (30S). Manitoba Education.',
+                'https://www.edu.gov.mb.ca/k12/cur/science/found/physics30s/index.html');
+
+            // ========== IMAGES & MEDIA (moved before Programming to match page order) ==========
+            addSection('Images & Media');
+
+            addCitation('All icons, logos, and diagrams were created originally for this project using SVG graphics.', null);
+            addCitation('Andersson, R. (2017). Inter. Google Fonts.',
+                'https://fonts.google.com/specimen/Inter');
+
+            // ========== PROGRAMMING SOURCES ==========
+            addSection('Programming (Building Website)');
+
+            addSubheading('Web Development Resources');
+            addCitation('Docs, M. W. (2020). Canvas API. MDN Web Docs.',
+                'https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API');
+            addCitation('Docs, M. W. (2000). JavaScript Guide. MDN Web Docs.',
+                'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide');
+            addCitation('Schools, W. (2023). CSS Tutorial. W3Schools Online Web Tutorials.',
+                'https://www.w3schools.com/css/');
+
+            addSubheading('Animation Libraries');
+            addCitation('Doyle, J. (2019). Animate Anything. GSAP.',
+                'https://gsap.com/docs/v3/');
+
+            addSubheading('Community Resources');
+            addCitation('Atwood, J., & Spolsky, J. (2008). Newest questions. Stack Overflow.',
+                'https://stackoverflow.com/questions');
+
+            // Footer
+            doc.setTextColor(...textMuted);
+            doc.setFontSize(8);
+            doc.text('ChargedUP - 2026', pageWidth / 2, pageHeight - 10, { align: 'center' });
+            doc.text('Aayan Sikri', pageWidth / 2, pageHeight - 5, { align: 'center' });
+
+            doc.save('ChargedUP - Sources.pdf');
+        }
+    </script>
+
+    <style>
+        .sources-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .source-item {
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .source-item:last-child {
+            border-bottom: none;
+        }
+
+        .source-citation {
+            margin-bottom: var(--space-xs);
+            color: var(--color-text-primary);
+            /* APA hanging indent: first line normal, subsequent lines indented */
+            padding-left: 2rem;
+            text-indent: -2rem;
+        }
+
+        .source-citation a {
+            /* Move URL to new line with APA indent */
+            display: block;
+            margin-top: var(--space-xs);
+            margin-left: 2rem;
+            text-indent: 0;
+            word-break: break-all;
+        }
+
+        .source-note {
+            font-size: var(--font-size-sm);
+            margin: 0;
+            padding-left: var(--space-md);
+            border-left: 2px solid var(--color-accent-cyan);
+        }
+    </style>
+</body>
+
+</html>

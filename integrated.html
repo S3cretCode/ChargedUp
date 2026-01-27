@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated View | ChargedUP</title>
+    <meta name="description"
+        content="See the complete energy conversion chain from battery chemistry to motor motion in your RC car.">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="header">
+        <div class="header__inner">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo.svg" alt="" width="40" height="40">
+                <span>ChargedUP</span>
+            </a>
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle menu"><span class="nav-toggle__bar"></span><span
+                        class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span></button>
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="chemistry.html" class="nav__link">Chemistry</a></li>
+                    <li><a href="physics.html" class="nav__link">Physics</a></li>
+                    <li><a href="integrated.html" class="nav__link nav__link--active">Integrated</a></li>
+                    <li><a href="simulations.html" class="nav__link">Simulations</a></li>
+                    <li><a href="glossary.html" class="nav__link">Glossary</a></li>
+                    <li><a href="sources.html" class="nav__link">Sources</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="page-wrapper">
+        <div class="container">
+            <section class="section">
+                <h1>🔄 The Complete Energy Chain</h1>
+                <p class="text-lg">Battery → Current → Magnetic Field → Motor → Motion</p>
+            </section>
+
+            <!-- Energy Flow Overview -->
+            <section class="section content-container">
+                <h2>Energy Conversion in an RC Car</h2>
+                <p>
+                    When you power on your RC car, a chain of energy transformations occurs. This page
+                    connects everything you've learned in the Chemistry and Physics pages, showing how chemical
+                    reactions in a simple AA battery result in mechanical motion.
+                </p>
+
+                <div class="card mb-lg mt-lg">
+                    <h3>The Four-Stage Energy Chain</h3>
+                    <p class="text-muted">
+                        Each stage represents a different type of energy transformation.
+                    </p>
+
+                    <div class="grid grid--4 text-center mt-lg">
+                        <div>
+                            <div style="font-size:2.5rem;">🔋</div>
+                            <h4 class="text-cyan">1. Chemical Energy</h4>
+                            <p class="text-sm">
+                                <strong>What happens:</strong> Inside the battery, zinc atoms lose electrons (<a
+                                    href="glossary.html#oxidation">oxidation</a>)
+                                while manganese dioxide gains them (<a href="glossary.html#reduction">reduction</a>).
+                                This <a href="glossary.html#redox">redox reaction</a> releases energy
+                                stored in chemical bonds.
+                            </p>
+                            <p class="text-sm text-muted mt-sm">
+                                <em>net reaction: <br>Zn(s) ​+ 2MnO2(s) ​ → ZnO(s) ​ + Mn2 ​O3(s) ​</em>
+                            </p>
+                        </div>
+                        <div>
+                            <div style="font-size:2.5rem;">⚡</div>
+                            <h4 class="text-teal">2. Electrical Energy</h4>
+                            <p class="text-sm">
+                                <strong>What happens:</strong> The electrons released by the chemical reaction flow
+                                through the external circuit as electric <a href="glossary.html#current">current</a>.
+                                The battery's <a href="glossary.html#voltage">voltage</a> (1.5V per cell)
+                                pushes these electrons through the wires.
+                            </p>
+                            <p class="text-sm text-muted mt-sm">
+                                <em>I = V / R (Ohm's Law)</em>
+                            </p>
+                        </div>
+                        <div>
+                            <div style="font-size:2.5rem;">🧲</div>
+                            <h4 class="text-cyan">3. Magnetic Energy</h4>
+                            <p class="text-sm">
+                                <strong>What happens:</strong> When current flows through the motor's coiled wire,
+                                it creates a <a href="glossary.html#magnetic-field">magnetic field</a> (<a
+                                    href="glossary.html#right-hand-rule">right-hand rule</a>). This field interacts with
+                                the permanent
+                                magnets in the motor.
+                            </p>
+                            <p class="text-sm text-muted mt-sm">
+                                <em>B = μ₀ × N × I / L</em>
+                            </p>
+                        </div>
+                        <div>
+                            <div style="font-size:2.5rem;">🚗</div>
+                            <h4 class="text-teal">4. Mechanical Energy</h4>
+                            <p class="text-sm">
+                                <strong>What happens:</strong> The magnetic forces create torque on the motor armature,
+                                causing it to spin. This rotation transfers through gears to the wheels, accelerating
+                                the car according to F = ma.
+                            </p>
+                            <p class="text-sm text-muted mt-sm">
+                                <em>V<sub>f</sub> = V<sub>i</sub> + at, d = V<sub>i</sub>t + &frac12;at<sup>2</sup></em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Why This Matters</h3>
+                    <p>
+                        Every battery-powered device, from your phone to electric vehicles, follows this same basic
+                        energy chain. By understanding how each stage works and connects to the next, you directly learn
+                        about the physics and chemistry that powers modern technology. The calculations below let you
+                        explore the numbers and see how changing one variable (like battery capacity or motor current)
+                        affects the entire system.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Interactive Pipeline -->
+            <section class="section">
+                <h2>📊 Interactive Pipeline</h2>
+
+                <div class="grid grid--2 mb-lg">
+                    <div class="card">
+                        <h3>Step 1: Battery Chemistry</h3>
+                        <p>Start by calculating your battery pack's energy output.</p>
+                        <a href="chemistry.html#battery-calculator" class="btn btn--primary btn--sm">Open Battery
+                            Calculator</a>
+
+                        <div id="battery-summary" class="mt-lg"
+                            style="padding:1rem; background:var(--color-bg-tertiary); border-radius:8px;">
+                            <p class="text-muted text-sm">No battery data loaded. Run the chemistry calculator first
+                                (stoichiometry mode).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Step 2: Motor Physics</h3>
+                        <p>See how the electrical energy powers the motor.</p>
+                        <a href="physics.html#motor-simulator" class="btn btn--primary btn--sm">Open Motor Simulator</a>
+
+                        <div id="motor-summary" class="mt-lg"
+                            style="padding:1rem; background:var(--color-bg-tertiary); border-radius:8px;">
+                            <p class="text-muted text-sm">Motor data will appear after using the physics simulator.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Energy Flow Diagram (Sankey-style) -->
+            <section class="section">
+                <h2>Energy Flow Diagram</h2>
+                <div class="card">
+                    <div style="padding: 2rem; text-align: center;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                            <div
+                                style="flex: 1; min-width: 120px; padding: 1rem; background: linear-gradient(135deg, #00D1FF22, #3EF1C622); border-radius: 12px;">
+                                <div style="font-size: 1.5rem;">🔋</div>
+                                <strong>Chemical Energy</strong>
+                                <p class="text-cyan" id="energy-chemical">-- Wh</p>
+                            </div>
+                            <div style="font-size: 2rem;">→</div>
+                            <div
+                                style="flex: 1; min-width: 120px; padding: 1rem; background: linear-gradient(135deg, #3EF1C622, #00D1FF22); border-radius: 12px;">
+                                <div style="font-size: 1.5rem;">⚡</div>
+                                <strong>Electrical</strong>
+                                <p class="text-teal" id="energy-electrical">-- V × -- A</p>
+                            </div>
+                            <div style="font-size: 2rem;">→</div>
+                            <div
+                                style="flex: 1; min-width: 100px; padding: 1rem; background: #ff634722; border-radius: 12px;">
+                                <div style="font-size: 1.5rem;">🔥</div>
+                                <strong>Heat Loss</strong>
+                                <p style="color: #ff6347;" id="energy-loss">I²R</p>
+                            </div>
+                            <div style="font-size: 2rem;">→</div>
+                            <div
+                                style="flex: 1; min-width: 120px; padding: 1rem; background: linear-gradient(135deg, #00D1FF22, #3EF1C622); border-radius: 12px;">
+                                <div style="font-size: 1.5rem;">⚙️</div>
+                                <strong>Mechanical</strong>
+                                <p class="text-cyan" id="energy-mechanical">Motor motion</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted text-sm text-center">Energy is conserved but transformed. Some is lost as heat
+                        in battery internal resistance and motor windings.</p>
+                </div>
+            </section>
+
+            <!-- Complete Worked Example -->
+            <section class="section content-container">
+                <h2>📖 Complete Worked Example</h2>
+
+                <div class="card worked-example">
+                    <h3>RC Car: From Battery to Wheel</h3>
+                    <p><strong>Scenario:</strong> An RC car uses a 4×AA alkaline pack (6V, 2000mAh) to power a small DC
+                        motor (3Ω, 50-turn coil).</p>
+
+                    <div class="collapsible-section">
+                        <button type="button" class="collapsible-toggle" aria-expanded="false"
+                            onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); this.nextElementSibling.style.display = this.getAttribute('aria-expanded') === 'true' ? 'block' : 'none'; this.querySelector('.toggle-icon').textContent = this.getAttribute('aria-expanded') === 'true' ? '▲' : '▼';"
+                            style="cursor: pointer; padding: 0.75rem 1rem; background: var(--color-bg-tertiary); border-radius: 8px; margin-bottom: 1rem; width: 100%; text-align: left; border: none; color: inherit; font-size: inherit;">
+                            <strong>📝 Full Analysis (click to expand)</strong> <span class="toggle-icon">▼</span>
+                        </button>
+                        <div class="collapsible-content" style="display: none;">
+                            <h4>Part A: Battery Chemistry</h4>
+                            <pre><code>Pack voltage: 4 × 1.5V = 6.0V
+Pack capacity: 2000 mAh
+Total charge: 2000 × 3.6 = 7200 C
+Total energy: 6.0V × 7200C = 43,200 J = 12.0 Wh</code></pre>
+
+                            <h4>Part B: Current Flow</h4>
+                            <pre><code>Internal resistance: 4 × 0.3Ω = 1.2Ω
+Total resistance: 3Ω + 1.2Ω = 4.2Ω
+Current: 6V / 4.2Ω = 1.43 A
+Loaded voltage: 6V - (1.43A × 1.2Ω) = 4.28V at motor</code></pre>
+
+                            <h4>Part C: Magnetic Field in Motor Coil</h4>
+                            <pre><code>For motor coil (N=50, L=2cm, I=1.43A):
+B = μ₀ × N × I / L
+B = (1.257×10⁻⁶) × 50 × 1.43 / 0.02
+B ≈ 4.5 mT</code></pre>
+                            <p class="text-muted text-sm"><strong>Note:</strong> This calculation assumes an air-core
+                                coil. In a real motor, an iron core would increase the magnetic field strength
+                                significantly, often by a factor of 1000 or more.</p>
+
+                            <h4>Part D: Power & Runtime</h4>
+                            <pre><code>Power to motor: 4.28V × 1.43A = 6.1W
+Power lost to heat: 1.43² × 1.2 = 2.5W
+Efficiency: 6.1 / (6.1 + 2.5) ≈ 71%
+Runtime: 2000mAh / 1430mA ≈ 1.4 hours</code></pre>
+
+                            <h4>Interpretation</h4>
+                            <p>The battery's chemical energy is converted to electrical energy at 71% efficiency (29%
+                                lost as heat in internal resistance). The current creates a magnetic field of about
+                                4.5mT in the motor coil, which interacts with permanent magnets to produce rotation. The
+                                car can run for approximately 1.4 hours before the batteries run out.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="section text-center">
+                <a href="simulations.html#labs" class="btn btn--primary btn--lg">Try Virtual Labs →</a>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>ChargedUP: Behind The Scenes of an RC Car — 2026 <br>By Aayan Sikri</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/gsap-animations.js"></script>
+    <script>
+        // Load battery and physics data if available
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load battery/chemistry data
+            const batteryData = localStorage.getItem('chargedup_battery_for_physics');
+            if (batteryData) {
+                try {
+                    const data = JSON.parse(batteryData);
+                    const summary = document.getElementById('battery-summary');
+                    if (summary && data) {
+                        const packVoltage = data.packVoltage || data.voltage || '--';
+                        const energyWh = data.energyWh?.toFixed(2) || '--';
+                        const current = data.motorCurrent || '--';
+                        const capacityMah = data.packCapacityMah || data.capacityMah || '--';
+                        const internalR = data.packInternalR || data.internalR || '--';
+                        const loadedV = data.loadedResults?.loadedVoltage?.toFixed(2) || '--';
+                        const runtime = data.runtime?.hours?.toFixed(1) || '--';
+
+                        summary.innerHTML = `
+                            <p style="color: #3EF1C6; font-weight: 600; margin-bottom: 0.5rem;">✅ Data Saved from Chemistry Calculator</p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.9rem;">
+                                <p><strong>Pack Voltage:</strong> ${packVoltage} V</p>
+                                <p><strong>Capacity:</strong> ${capacityMah} mAh</p>
+                                <p><strong>Energy:</strong> ${energyWh} Wh</p>
+                                <p><strong>Internal R:</strong> ${internalR} Ω</p>
+                                <p><strong>Motor Current:</strong> ${current} A</p>
+                                <p><strong>Loaded Voltage:</strong> ${loadedV} V</p>
+                                <p><strong>Est. Runtime:</strong> ${runtime} hrs</p>
+                            </div>
+                            <p class="text-muted text-sm" style="margin-top: 0.75rem;">Data persists until cleared in Settings ⚙️</p>
+                        `;
+
+                        // Update energy flow diagram
+                        document.getElementById('energy-chemical').textContent = `${energyWh} Wh`;
+                        document.getElementById('energy-electrical').textContent = `${packVoltage}V × ${current}A`;
+                        if (data.loadedResults?.powerLossW) {
+                            document.getElementById('energy-loss').textContent = `${data.loadedResults.powerLossW.toFixed(2)} W`;
+                        }
+                    }
+                } catch (e) {
+                    console.log('Error loading battery data:', e);
+                }
+            }
+
+            // Load physics/motor data if available
+            const physicsData = localStorage.getItem('chargedup_motor_for_integrated');
+            if (physicsData) {
+                try {
+                    const data = JSON.parse(physicsData);
+                    const summary = document.getElementById('motor-summary');
+                    if (summary && data) {
+                        summary.innerHTML = `
+                            <p style="color: #00D1FF; font-weight: 600; margin-bottom: 0.5rem;">✅ Data Saved from Physics Simulator</p>
+                            <div style="font-size: 0.9rem;">
+                                <p><strong>Magnetic Field:</strong> ${data.bField?.toFixed(2) || '--'} mT</p>
+                                <p><strong>Motor Power:</strong> ${data.motorPower?.toFixed(2) || '--'} W</p>
+                                <p><strong>Est. RPM:</strong> ${data.estimatedRPM || '--'}</p>
+                            </div>
+                            <p class="text-muted text-sm" style="margin-top: 0.75rem;">Data persists until cleared in Settings ⚙️</p>
+                        `;
+                    }
+                } catch (e) {
+                    console.log('Error loading physics data:', e);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
