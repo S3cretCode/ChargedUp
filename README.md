@@ -1,6 +1,6 @@
 # ChargedUP: Behind The Scenes of an RC Car
 
-An interactive educational website connecting **battery chemistry** and **DC motors** through the real-world application of powering an RC toy car.
+An interactive educational website connecting **battery chemistry** and **DC motors** through the real-world application of powering an RC car.
 
 ![ChargedUP](https://img.shields.io/badge/ChargedUP-RC%20Car%20Science-00D1FF)
 ![Grade 11](https://img.shields.io/badge/Grade-11-3EF1C6)
